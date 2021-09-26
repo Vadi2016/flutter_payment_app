@@ -47,15 +47,15 @@ class TransactionRequest {
 
   TransactionRequest(
     this.transactionType, {
-     this.amount,
-     this.currencyCode,
-     this.payment,
-     this.refTransId,
-     this.billTo,
-     this.shipTo,
-     this.tax,
-     this.duty,
-     this.shipping,
+    this.amount,
+    this.currencyCode,
+    this.payment,
+    this.refTransId,
+    this.billTo,
+    this.shipTo,
+    this.tax,
+    this.duty,
+    this.shipping,
   });
 
   /// Factory constructor for creating a request to Charge the Credit card
@@ -63,11 +63,11 @@ class TransactionRequest {
     String amount,
     String currencyCode,
     Payment payment, {
-     Address? billTo,
-     Address? shipTo,
-     AdditionalCharge? tax,
-     AdditionalCharge? duty,
-     AdditionalCharge? shipping,
+    Address? billTo,
+    Address? shipTo,
+    AdditionalCharge? tax,
+    AdditionalCharge? duty,
+    AdditionalCharge? shipping,
   }) {
     return TransactionRequest(TAG_AUTH_CAPTURE_TRANSACTION,
         amount: amount,
@@ -85,11 +85,11 @@ class TransactionRequest {
     String amount,
     String currencyCode,
     Payment payment, {
-     Address? billTo,
-     Address? shipTo,
-     AdditionalCharge? tax,
-     AdditionalCharge? duty,
-     AdditionalCharge? shipping,
+    Address? billTo,
+    Address? shipTo,
+    AdditionalCharge? tax,
+    AdditionalCharge? duty,
+    AdditionalCharge? shipping,
   }) {
     return TransactionRequest(
       TAG_AUTH_ONLY_TRANSACTION,
@@ -105,7 +105,6 @@ class TransactionRequest {
     );
   }
 
-  /// Factory constructor for creating a request to execute pre-authorize a transaction
   factory TransactionRequest.priorAuthCaptureTransaction(
       String amount, String currencyCode, String referenceTransactionID) {
     return TransactionRequest(
@@ -116,8 +115,6 @@ class TransactionRequest {
     );
   }
 
-  /// Factory constructor for creating a request to refund a transaction,
-  /// A Work in progress right now
   factory TransactionRequest.refundTransaction(String amount,
       String currencyCode, Payment payment, String referenceTransactionID) {
     return TransactionRequest(
@@ -129,7 +126,6 @@ class TransactionRequest {
     );
   }
 
-  /// Factory constructor for creating a request to void/discard/cancel a transaction
   factory TransactionRequest.voidTransaction(String referenceTransactionID) {
     return TransactionRequest(
       TAG_VOID_TRANSACTION,

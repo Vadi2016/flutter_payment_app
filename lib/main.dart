@@ -54,10 +54,12 @@ class BankDetailsState extends State<BankDetailsScreen> {
         _focusNode.hasFocus ? showBack = true : showBack = false;
       });
     });
-    // Register your sandbox account for testing app on this page:
-    // https://developer.authorize.net/hello_world/sandbox.html
-    // after registration you can put YOUR API LOGIN ID and YOUR TRANSACTION KEY in this field
-    _clientService = AuthorizeNetClientService('YOUR API LOGIN ID', 'YOUR TRANSACTION KEY');
+
+    /// Register your sandbox account for testing app on this page:
+    /// https://developer.authorize.net/hello_world/sandbox.html
+    /// after registration you can put YOUR API LOGIN ID and YOUR TRANSACTION KEY in this field
+    _clientService =
+        AuthorizeNetClientService('YOUR API LOGIN ID', 'YOUR TRANSACTION KEY');
   }
 
   @override
@@ -212,20 +214,26 @@ class BankDetailsState extends State<BankDetailsScreen> {
                                   cardNumber, expiryDate, cvv);
                           print('response: \n${response.toJson()}');
                           _refID = response.transactionResponse.transId;
+                          print(
+                              'Reference identifier to search for transactions:'
+                              ' $_refID');
                         },
                         child: const Text(
                           'Confirm',
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         )),
                   ),
-                 const Padding(
-                   padding: EdgeInsets.all(40.0),
-                   child: Center(
-
-                     child: Text('We will debit 1\$ from your account. '
-                          'You don\'t have to worry, we will return it.', style: TextStyle(color: Colors.black, fontSize: 22), textAlign: TextAlign.center,),
-                   ),
-                 )
+                  const Padding(
+                    padding: EdgeInsets.all(40.0),
+                    child: Center(
+                      child: Text(
+                        'We will debit 1\$ from your account. '
+                        'You don\'t have to worry, we will return it.',
+                        style: TextStyle(color: Colors.black, fontSize: 22),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ))

@@ -6,12 +6,6 @@ import 'transaction_request.dart';
 
 part 'create_transaction_request.g.dart';
 
-/// A model that represents the general implementation of Transaction request
-/// for the api
-///
-/// This model wraps the actual transaction details for the api & also contains
-/// the merchant details & custom referenceID, if provided by the client
-///
 @JsonSerializable(explicitToJson: true)
 class CreateTransactionRequest {
   static const String Tag = 'createTransactionRequest';
@@ -26,10 +20,10 @@ class CreateTransactionRequest {
   final TransactionRequest transactionRequest;
 
   CreateTransactionRequest(
-      this.merchantAuthentication, {
-        required this.referenceID,
-        required this.transactionRequest,
-      });
+    this.merchantAuthentication, {
+    required this.referenceID,
+    required this.transactionRequest,
+  });
 
   Map<String, dynamic>? toJson() =>
       removeNullsFromMap(_$CreateTransactionRequestToJson(this));

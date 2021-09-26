@@ -6,8 +6,6 @@ import '../data/response_messages.dart';
 
 part 'authentication_test_response.g.dart';
 
-/// A model to represent general structure of the response for [AuthenticationTestRequest]
-/// request to the api
 @JsonSerializable(explicitToJson: true)
 class AuthenticationTestResponse {
   @JsonKey(name: 'messages')

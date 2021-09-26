@@ -7,14 +7,6 @@ import '../data/response_message.dart';
 
 part 'transaction_response.g.dart';
 
-/// A model to represent structure of the transaction details of the [CreateTransactionResponse]
-///
-/// It contains many important data like, [responseCode], [authCode], [transId],
-/// [refTransID], etc.
-///
-/// [messages] contains a list of messages to describe the issues or transaction details
-/// [errors] contains a list of error messages to describe the errors that occurred during
-/// the execution of the request
 @JsonSerializable(explicitToJson: true)
 class TransactionResponse {
   @JsonKey(name: 'responseCode')

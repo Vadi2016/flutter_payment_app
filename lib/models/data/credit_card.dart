@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'package:flutter_payment_proj/utils/utils.dart' show removeNullsFromMap;
 
-
 part 'credit_card.g.dart';
 
-/// A model to represent credit card data used for payment
 @JsonSerializable(explicitToJson: true)
 class CreditCard {
   @JsonKey(name: 'cardNumber')
@@ -26,9 +24,3 @@ class CreditCard {
   Map<String, dynamic>? toJson() =>
       removeNullsFromMap(_$CreditCardToJson(this));
 }
-
-/*{
-        "cardNumber": "5424000000000015",
-        "expirationDate": "2020-12",
-        "cardCode": "999"
-    }*/

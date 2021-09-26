@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter_payment_proj/models/models.dart';
 import '../../utils/utils.dart';
+
 part 'payment.g.dart';
 
-/// A model to represent payment data, currently it only supports Credit card data
 @JsonSerializable(explicitToJson: true)
 class Payment {
   @JsonKey(name: 'creditCard')
@@ -12,16 +12,12 @@ class Payment {
   Payment({required this.creditCard});
 
   factory Payment.creditCard(
-      String cardNumber,
-      String expirationDate,
-      String cardCode
-      ) {
+      String cardNumber, String expirationDate, String cardCode) {
     return Payment(
       creditCard: CreditCard(
-        cardNumber: cardNumber,
-        expirationDate: expirationDate,
-        cardCode: cardCode
-      ),
+          cardNumber: cardNumber,
+          expirationDate: expirationDate,
+          cardCode: cardCode),
     );
   }
 
@@ -30,12 +26,3 @@ class Payment {
 
   Map<String, dynamic>? toJson() => removeNullsFromMap(_$PaymentToJson(this));
 }
-
-
-/*{
-    "creditCard": {
-        "cardNumber": "5424000000000015",
-        "expirationDate": "2020-12",
-        "cardCode": "999"
-    }
-}*/

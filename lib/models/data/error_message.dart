@@ -4,7 +4,6 @@ import '../../../utils/utils.dart';
 
 part 'error_message.g.dart';
 
-/// A model to represent an error message provided by the api
 @JsonSerializable(explicitToJson: true)
 class ErrorMessage {
   @JsonKey(name: 'errorCode')
@@ -20,8 +19,3 @@ class ErrorMessage {
   Map<String, dynamic>? toJson() =>
       removeNullsFromMap(_$ErrorMessageToJson(this));
 }
-
-/* {
-                "errorCode": "8",
-                "errorText": "The credit card has expired."
-            }*/
