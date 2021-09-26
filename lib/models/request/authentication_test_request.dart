@@ -1,0 +1,29 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import '../../utils/utils.dart';
+import '../data/merchant_authentication.dart';
+
+part 'authentication_test_request.g.dart';
+
+/// A model to represent An Authentication test request:
+/// Refer: https://developer.authorize.net/api/reference/index.html#gettingstarted-section-section-header
+@JsonSerializable(explicitToJson: true)
+class AuthenticationTestRequest {
+  static const String Tag = 'authenticateTestRequest';
+  @JsonKey(name: 'merchantAuthentication')
+  final MerchantAuthentication merchantAuthentication;
+
+  AuthenticationTestRequest(this.merchantAuthentication);
+
+  factory AuthenticationTestRequest.fromJson(Map<String, dynamic> json) =>
+      _$AuthenticationTestRequestFromJson(json);
+
+  Map<String, dynamic>? toJson() =>
+      removeNullsFromMap(_$AuthenticationTestRequestToJson(this));
+
+  Map<String, dynamic> getRequestJson() {
+    return {
+      AuthenticationTestRequest.Tag: toJson(),
+    };
+  }
+}
